@@ -38,10 +38,10 @@ class TwitterClient(object):
 		# create TextBlob object of passed tweet text
 		analysis = TextBlob(self.clean_tweet(tweet), analyzer=NaiveBayesAnalyzer())
 		# set sentiment
-		if analysis.sentiment.p_pos > analysis.sentiment.p_neg or analysis.sentiment.p_pos >= .5:
+		if  analysis.sentiment.p_pos >= .5:
 			return 'positive'
 
-		elif analysis.sentiment.p_neg > analysis.sentiment.p_pos or analysis.sentiment.p_neg >= .5:
+		elif  analysis.sentiment.p_neg >= .5:
 			return 'negative'
 		else:
 			return 'neutral'
